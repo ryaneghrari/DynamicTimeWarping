@@ -2,6 +2,7 @@
 #define DTW_H
 
 #include <vector>
+#include <stack>
 
 using namespace std;
 
@@ -14,8 +15,10 @@ class DTW
         vector< vector<double> >     matrix;
 		vector<double>               arr1;
 		vector<double>               arr2;
+		stack< vector<double> >      backTrackRoute;
 		double                       runDTW(vector<double> arr1, vector<double> arr2, vector< vector<double> > matrix);
 		void                         initMatrix(vector<double> arr1, vector<double> arr2);
+		stack< vector<double> >      backTrack(vector<double> arr1, vector<double> arr2, vector< vector<double> > matrix);
     
     public:
         DTW();
@@ -23,6 +26,7 @@ class DTW
         ~DTW();
 
 		vector< vector<double> > getMatrix();
+		stack< vector<double> >  getRoute();
 		vector<double>           getArrY();
 		vector<double>           getArrX();
 		vector<double>           getArr1();

@@ -1,4 +1,6 @@
+#include <iostream>
 #include <vector>
+#include <stack>
 #include "DTW.h"
 
 using namespace std;
@@ -19,6 +21,16 @@ int main()
 	d.printMatrix(d.getMatrix());
     d.printVector(d.getArr1());
     d.printVector(d.getArr2());
+    
+	stack< vector<double> > stak1 = d.getRoute();
+	
+	while(!stak1.empty())
+	{
+		vector<double> point = stak1.top();
+		stak1.pop();
+		cout << "{" << point[0] << "," << point[1] << "}" << "\t";
+	}
+	cout << endl;
 
 	for(int i = 9; i < 13; i++)
 	{
@@ -41,6 +53,15 @@ int main()
     d2.printVector(d2.getArr1());
     d2.printVector(d2.getArr2());
 
+    stack< vector<double> > stak = d2.getRoute();
+
+    while(!stak.empty())
+	{
+		vector<double> point = stak.top();
+		stak.pop();
+		cout << "{" << point[0] << "," << point[1] << "}" << "\t";
+	}
+	cout << endl;
 
 }
 
